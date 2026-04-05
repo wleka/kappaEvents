@@ -13,6 +13,7 @@ class KappaEvents : JavaPlugin() {
         // Plugin startup logic
 
         getCommand("fart")?.setExecutor(FartCommand())
+        getCommand("sex")?.setExecutor(SexCommand())
     }
 
     override fun onDisable() {

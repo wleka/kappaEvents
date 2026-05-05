@@ -1,5 +1,6 @@
 package org.example.wleku.kappaEvents
 
+import org.bukkit.entity.EntityType
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -18,17 +19,26 @@ class EndedSeasone: Listener {
     @EventHandler
     fun onDisableBroke(event: BlockBreakEvent) {
         if (endSeasone == true) {
-            event.isCancelled = true
 
-            event.player.sendMessage(warning)
+            if (!event.player.isOp) {
+                event.isCancelled = true
+
+                event.player.sendMessage(warning)
+            } else {
+                event.isCancelled = false
+            }
         }
     }
 
     @EventHandler
     fun onDisablePlacement(event: BlockPlaceEvent) {
         if (endSeasone == true) {
-            event.isCancelled = true
-            event.player.sendMessage(warning)
+            if (!event.player.isOp) {
+                event.isCancelled = true
+                event.player.sendMessage(warning)
+            } else {
+                event.isCancelled = false
+            }
         }
     }
 
@@ -36,10 +46,14 @@ class EndedSeasone: Listener {
     fun onDisablePVP(event: EntityDamageEvent) {
 
         if (endSeasone == true) {
-            event.isCancelled = true
 
             if (event.entity is Player) {
-                // event.entity.sendMessage(warning)
+                if (!event.entity.isOp) {
+                    event.isCancelled = true
+                    // event.entity.sendMessage(warning)
+                } else {
+                    event.isCancelled = false
+                }
             }
         }
     }
@@ -61,7 +75,11 @@ class EndedSeasone: Listener {
         if (endSeasone == true) {
             for (disableChests in blocksList) {
                 if (event.clickedInventory?.type == disableChests) {
-                    event.isCancelled = true
+                    if (!event.whoClicked.isOp) {
+                        event.isCancelled = true
+                    } else {
+                        event.isCancelled = false
+                    }
                 }
             }
         }

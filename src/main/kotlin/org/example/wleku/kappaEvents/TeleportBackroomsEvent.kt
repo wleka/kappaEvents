@@ -1,6 +1,7 @@
 package org.example.wleku.kappaEvents
 
 import org.bukkit.Bukkit
+import org.bukkit.GameMode
 import org.bukkit.Location
 import org.bukkit.Material
 import org.bukkit.event.EventHandler
@@ -32,10 +33,15 @@ class TeleportBackroomsEvent: Listener {
         val blockZ = player.location.z
         val world = player.world
 
+        val gamemode = player.gameMode
+
         if (world.name == "world") {
             if (blockY <= -72) {
                 Bukkit.broadcastMessage("${player.name} выпал из мира.")
                 player.teleport(Location(Bukkit.getWorld(nameWorld), 0.0, -59.0, 0.0))
+
+                player.gameMode = gamemode
+
                 player.health = 20.0
                 player.addPotionEffect(PotionEffect(PotionEffectType.DARKNESS, Int.MAX_VALUE, 0))
             }
@@ -43,6 +49,9 @@ class TeleportBackroomsEvent: Listener {
             if (blockY >= -27) {
                 Bukkit.broadcastMessage("${player.name} вёрнулся в мир.")
                 player.teleport(Location(Bukkit.getWorld("world"), 0.0, 71.0, 0.0))
+
+                player.gameMode = gamemode
+
                 player.health = 20.0
                 player.removePotionEffect(PotionEffectType.DARKNESS)
             }

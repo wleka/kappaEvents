@@ -25,6 +25,8 @@ class KappaEvents : JavaPlugin() {
         Bukkit.getPluginManager().registerEvents(TeleportBackroomsEvent(), this)
         Bukkit.getPluginManager().registerEvents(BorderEvent(), this)
 
+        Bukkit.getPluginManager().registerEvents(DuelsEvents(), this)
+
     }
 
     override fun onDisable() {

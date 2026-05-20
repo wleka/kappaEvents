@@ -16,8 +16,16 @@ class KappaEvents : JavaPlugin() {
         saveDefaultConfig()
         instance = this
 
-        getCommand("fart")?.setExecutor(FartCommand())
-        getCommand("sex")?.setExecutor(SexCommand())
+        val enablingFart = this.config.getBoolean("FartCommand")
+        val enablingSex = this.config.getBoolean("SexCommand")
+
+        if (enablingFart == true) {
+            getCommand("fart")?.setExecutor(FartCommand())
+        }
+
+        if (enablingSex == true) {
+            getCommand("sex")?.setExecutor(SexCommand())
+        }
 
         Bukkit.getPluginManager().registerEvents(EndedSeasone(), this)
 

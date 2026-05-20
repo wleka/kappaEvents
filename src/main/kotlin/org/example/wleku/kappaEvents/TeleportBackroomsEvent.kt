@@ -25,50 +25,56 @@ class TeleportBackroomsEvent: Listener {
         Material.DARK_OAK_STAIRS
     )
 
+    val plugin = KappaEvents.instance
+    val enabling = plugin.config.getBoolean("BackroomsTeleport")
+
     @EventHandler
     fun onTeleportBackroomsEvent(event: PlayerMoveEvent) {
-        val player = event.player
-        val blockX = player.location.x
-        val blockY = player.location.y
-        val blockZ = player.location.z
-        val world = player.world
+        if (enabling == true) {
+            val player = event.player
+            val blockX = player.location.x
+            val blockY = player.location.y
+            val blockZ = player.location.z
+            val world = player.world
 
-        val gamemode = player.gameMode
+            val gamemode = player.gameMode
 
-        if (world.name == "world") {
-            if (blockY <= -72) {
-                Bukkit.broadcastMessage("${player.name} выпал из мира.")
-                player.teleport(Location(Bukkit.getWorld(nameWorld), 0.0, -59.0, 0.0))
+            if (world.name == "world") {
+                if (blockY <= -72) {
+                    Bukkit.broadcastMessage("${player.name} выпал из мира.")
+                    player.teleport(Location(Bukkit.getWorld(nameWorld), 0.0, -59.0, 0.0))
 
-                player.gameMode = gamemode
+                    player.gameMode = gamemode
 
-                player.health = 20.0
-                player.addPotionEffect(PotionEffect(PotionEffectType.DARKNESS, Int.MAX_VALUE, 0))
-            }
-        } else if (world.name == nameWorld) {
-            if (blockY >= -27) {
-                Bukkit.broadcastMessage("${player.name} вёрнулся в мир.")
-                player.teleport(Location(Bukkit.getWorld("world"), 0.0, 71.0, 0.0))
+                    player.health = 20.0
+                    player.addPotionEffect(PotionEffect(PotionEffectType.DARKNESS, Int.MAX_VALUE, 0))
+                }
+            } else if (world.name == nameWorld) {
+                if (blockY >= -27) {
+                    Bukkit.broadcastMessage("${player.name} вёрнулся в мир.")
+                    player.teleport(Location(Bukkit.getWorld("world"), 0.0, 71.0, 0.0))
 
-                player.gameMode = gamemode
+                    player.gameMode = gamemode
 
-                player.health = 20.0
-                player.removePotionEffect(PotionEffectType.DARKNESS)
+                    player.health = 20.0
+                    player.removePotionEffect(PotionEffectType.DARKNESS)
+                }
             }
         }
-
     }
 
     @EventHandler
     fun onDisableBreak(event: BlockBreakEvent) {
-        val player = event.player
-        val world = player.world.name
-        val block = event.block
+        if (enabling == true) {
+            val player = event.player
+            val world = player.world.name
+            val block = event.block
 
-        if (world == nameWorld) {
-            for (blockDisaled in blocksList) {
-                if (block.type == blockDisaled) {
-                    event.isCancelled = true
+            if (world == nameWorld) {
+                for (blockDisaled in blocksList) {
+                    if (block.type == blockDisaled) {
+                        event.isCancelled = true
+                    }
                 }
             }
         }
@@ -76,14 +82,16 @@ class TeleportBackroomsEvent: Listener {
 
     @EventHandler
     fun onDisblePlace(event: BlockPlaceEvent) {
-        val player = event.player
-        val world = player.world.name
-        val block = event.block
+        if (enabling == true) {
+            val player = event.player
+            val world = player.world.name
+            val block = event.block
 
-        if (world == nameWorld) {
-            for (blockDisaled in blocksList) {
-                if (block.type == blockDisaled) {
-                    event.isCancelled = true
+            if (world == nameWorld) {
+                for (blockDisaled in blocksList) {
+                    if (block.type == blockDisaled) {
+                        event.isCancelled = true
+                    }
                 }
             }
         }

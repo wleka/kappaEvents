@@ -1,1 +1,9 @@
-endSeasone: true
+## Plugin KappaEvent maked by wlekuu
+## Config for enable/disable function and event plugins
+
+endSeasone: false # For end seasone server
+borderEvent: false # For invisible border the world
+DuelsEvent: false # For disable place and breake in duels maps
+FartCommand: false # /fart
+SexCommand: false # /sex
+BackroomsTeleport: true # Teleporting to backrooms map

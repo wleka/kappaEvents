@@ -10,40 +10,51 @@ class DuelsEvents: Listener {
     var breakMessage = "§cВы не можете ломать блоки!"
     var placeMessage = "§cВы не можете ставить блоки!"
 
+    val plugin = KappaEvents.instance
+    val enabling = plugin.config.getBoolean("DuelsEvent")
+
     @EventHandler
     fun onDisableBreak(event: BlockBreakEvent) {
-        var player = event.player
-        val world = player.world
+        if (enabling == true) {
+            var player = event.player
+            val world = player.world
 
-        when (world.name) {
-            "duel_default" -> {
-                event.isCancelled = true
+            when (world.name) {
+                "duel_default" -> {
+                    event.isCancelled = true
 
-            }
-            "duel_pvz" -> {
-                event.isCancelled = true
-            }
-            "duel_front" -> {
-                event.isCancelled = true
+                }
+
+                "duel_pvz" -> {
+                    event.isCancelled = true
+                }
+
+                "duel_front" -> {
+                    event.isCancelled = true
+                }
             }
         }
     }
 
     @EventHandler
     fun onDisablePlace(event: BlockPlaceEvent) {
-        var player = event.player
-        val world = player.world
+        if (enabling == true) {
+            var player = event.player
+            val world = player.world
 
-        when (world.name) {
-            "duel_default" -> {
-                event.isCancelled = true
+            when (world.name) {
+                "duel_default" -> {
+                    event.isCancelled = true
 
-            }
-            "duel_pvz" -> {
-                event.isCancelled = true
-            }
-            "duel_front" -> {
-                event.isCancelled = true
+                }
+
+                "duel_pvz" -> {
+                    event.isCancelled = true
+                }
+
+                "duel_front" -> {
+                    event.isCancelled = true
+                }
             }
         }
     }

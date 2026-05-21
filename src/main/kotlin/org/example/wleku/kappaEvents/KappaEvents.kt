@@ -27,6 +27,8 @@ class KappaEvents : JavaPlugin() {
             getCommand("sex")?.setExecutor(SexCommand())
         }
 
+        Bukkit.getPluginManager().registerEvents(FirstTimeEvent(), this)
+
         Bukkit.getPluginManager().registerEvents(EndedSeasone(), this)
 
         Bukkit.getPluginManager().registerEvents(BorderEvent(), this)

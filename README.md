@@ -1,5 +1,5 @@
 ## The KappaEvent
-The KappaEvent plugin used on the Minecraft server KappaMC.
+The KappaEvent plugin used on the Minecraft server [KappaMC](https://aternos.online/).
 
 KappaEvent having functional
 - Teleport to other world

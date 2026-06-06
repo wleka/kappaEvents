@@ -1,0 +1,10 @@
+## The KappaEvent
+The KappaEvent plugin used on the Minecraft server KappaMC.
+
+KappaEvent having functional
+- Teleport to other world
+- Disable broke/place the blocks in other world
+- Invisible border world in overworld
+- /fart - for fart with near players
+- /sex <player> - Make sex with other player, or make self-priming
+- Function about ended seasone in server

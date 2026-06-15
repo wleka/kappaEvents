@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/KappaEvents.iml" filepath="$PROJECT_DIR$/.idea/modules/KappaEvents.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/KappaEvents.main.iml" filepath="$PROJECT_DIR$/.idea/modules/KappaEvents.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/org.example.wleku.KappaEvents.main.iml" filepath="$PROJECT_DIR$/.idea/modules/org.example.wleku.KappaEvents.main.iml" />
     </modules>
   </component>
 </project>

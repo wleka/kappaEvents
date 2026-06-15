@@ -1,5 +1,8 @@
 package org.example.wleku.kappaEvents
 
+import BuyCommandJava
+import PricesCommandJava
+import SellCommandJava
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 
@@ -26,6 +29,10 @@ class KappaEvents : JavaPlugin() {
         if (enablingSex == true) {
             getCommand("sex")?.setExecutor(SexCommand())
         }
+
+        getCommand("buy")?.setExecutor(BuyCommandJava())
+        getCommand("sell")?.setExecutor(SellCommandJava())
+        getCommand("price")?.setExecutor(PricesCommandJava())
 
         Bukkit.getPluginManager().registerEvents(FirstTimeEvent(), this)
 

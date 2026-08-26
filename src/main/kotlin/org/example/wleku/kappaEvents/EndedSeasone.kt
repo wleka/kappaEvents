@@ -50,8 +50,6 @@ class EndedSeasone: Listener {
                 if (!event.entity.isOp) {
                     event.isCancelled = true
                     // event.entity.sendMessage(warning)
-                } else {
-                    event.isCancelled = false
                 }
             }
         }
@@ -76,8 +74,6 @@ class EndedSeasone: Listener {
                 if (event.clickedInventory?.type == disableChests) {
                     if (!event.whoClicked.isOp) {
                         event.isCancelled = true
-                    } else {
-                        event.isCancelled = false
                     }
                 }
             }

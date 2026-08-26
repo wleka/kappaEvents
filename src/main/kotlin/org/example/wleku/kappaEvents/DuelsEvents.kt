@@ -1,28 +1,26 @@
 package org.example.wleku.kappaEvents
 
+import org.bukkit.Bukkit
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.block.BlockBreakEvent
-import org.bukkit.event.block.BlockPlaceEvent
 
 class DuelsEvents: Listener {
 
-    var breakMessage = "§cВы не можете ломать блоки!"
-    var placeMessage = "§cВы не можете ставить блоки!"
+    var doingThis = "§cYou're can't do that!"
 
     val plugin = KappaEvents.instance
     val enabling = plugin.config.getBoolean("DuelsEvent")
 
     @EventHandler
-    fun onDisableBreak(event: BlockBreakEvent) {
+    fun onDisableBlockBreak(event: BlockBreakEvent) {
         if (enabling == true) {
-            var player = event.player
-            val world = player.world
+            var player = Bukkit.getPlayer(Bukkit.getName())
+            val world = player?.world
 
-            when (world.name) {
+            when (world?.name) {
                 "duel_default" -> {
                     event.isCancelled = true
-
                 }
 
                 "duel_pvz" -> {
@@ -37,15 +35,14 @@ class DuelsEvents: Listener {
     }
 
     @EventHandler
-    fun onDisablePlace(event: BlockPlaceEvent) {
+    fun onDisableBlockPlace(event: BlockBreakEvent) {
         if (enabling == true) {
             var player = event.player
-            val world = player.world
+            val world = player?.world
 
-            when (world.name) {
+            when (world?.name) {
                 "duel_default" -> {
                     event.isCancelled = true
-
                 }
 
                 "duel_pvz" -> {

@@ -25,7 +25,7 @@ class BorderEvent: Listener {
 
             if (world.name == "world") {
                 if (xBlock >= warningActionBar || xBlock <= -warningActionBar || zBlock <= -warningActionBar || zBlock >= warningActionBar) {
-                    player.sendActionBar("Вы находитесь рядом с границей мира.")
+                    player.sendActionBar("You're located around border")
 
                     if (xBlock >= maxBlock) {
                         player.sendActionBar("Вы переходите границу мира.")

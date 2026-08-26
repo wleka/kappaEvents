@@ -31,16 +31,14 @@ class TeleportBackroomsEvent: Listener {
     fun onTeleportBackroomsEvent(event: PlayerMoveEvent) {
         if (enabling == true) {
             val player = event.player
-            val blockX = player.location.x
             val blockY = player.location.y
-            val blockZ = player.location.z
             val world = player.world
 
             val gamemode = player.gameMode
 
             if (world.name == "world") {
                 if (blockY <= -72) {
-                    Bukkit.broadcastMessage("${player.name} выпал из мира.")
+                    Bukkit.broadcastMessage("${player.name} falled from world")
                     player.teleport(Location(Bukkit.getWorld(nameWorld), 0.0, -59.0, 0.0))
 
                     player.gameMode = gamemode
@@ -50,7 +48,7 @@ class TeleportBackroomsEvent: Listener {
                 }
             } else if (world.name == nameWorld) {
                 if (blockY >= -27) {
-                    Bukkit.broadcastMessage("${player.name} вёрнулся в мир.")
+                    Bukkit.broadcastMessage("${player.name}'s back world")
                     player.teleport(Location(Bukkit.getWorld("world"), 0.0, 71.0, 0.0))
 
                     player.gameMode = gamemode

@@ -16,7 +16,7 @@ class SexCommand: CommandExecutor {
     ): Boolean {
 
         if (args.isEmpty()) {
-            sender.sendMessage("§cНапиши ник игрока §8: §f/sex {player}")
+            sender.sendMessage("§cPlease write player name §8: §f/sex {player}")
             return true
         }
 
@@ -24,14 +24,14 @@ class SexCommand: CommandExecutor {
             val player = Bukkit.getPlayer(args[0])
 
             if (player == null) {
-                sender.sendMessage("§cИгрока нет в сети.")
+                sender.sendMessage("§cPlayer's not online")
             } else {
-                sender.sendActionBar(Component.text("§7Вы занялись сексом с §f${args[0]}"))
+                sender.sendActionBar(Component.text("§7You make sex with §f${args[0]}"))
 
                 if (player.name == sender.name) {
-                    Bukkit.broadcastMessage("§f${sender.name} §7занялся самоотсосом")
+                    Bukkit.broadcastMessage("§f${sender.name} §7make self-sucks")
                 } else {
-                    Bukkit.broadcastMessage("§f${sender.name} §7занялся сексом с §f${args[0]}")
+                    Bukkit.broadcastMessage("§f${sender.name} §7maked sex with §f${args[0]}")
                 }
             }
         }

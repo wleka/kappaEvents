@@ -12,7 +12,7 @@ import org.bukkit.event.inventory.InventoryType
 class EndedSeasone: Listener {
 
     val plugin = KappaEvents.instance
-    val warning = "\n§cВы не можете сделать ЭТО! Данный сезон закончился, поэтому ждите следующий сезон для игры.\n"
+    val warning = plugin.config.getString("seasoneMsg").toString();
     val endSeasone = plugin.config.getBoolean("endSeasone")
 
     @EventHandler

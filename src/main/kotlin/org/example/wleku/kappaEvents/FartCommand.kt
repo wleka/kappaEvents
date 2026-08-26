@@ -14,7 +14,7 @@ class FartCommand: CommandExecutor {
     ): Boolean {
 
         if (sender is Player) {
-            sender.sendMessage("Вы пернули только что.")
+            sender.sendMessage("you're farted now.")
             sender.world.playSound(sender.location, org.bukkit.Sound.ENTITY_SHULKER_SHOOT, 1.5f, 1f)
         }
 

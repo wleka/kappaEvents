@@ -30,9 +30,9 @@ class KappaEvents : JavaPlugin() {
             getCommand("sex")?.setExecutor(SexCommand())
         }
 
-        getCommand("buy")?.setExecutor(BuyCommandJava())
-        getCommand("sell")?.setExecutor(SellCommandJava())
-        getCommand("price")?.setExecutor(PricesCommandJava())
+        // getCommand("buy")?.setExecutor(BuyCommandJava())
+        // getCommand("sell")?.setExecutor(SellCommandJava())
+        // getCommand("price")?.setExecutor(PricesCommandJava())
 
         Bukkit.getPluginManager().registerEvents(FirstTimeEvent(), this)
 

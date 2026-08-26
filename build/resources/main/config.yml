@@ -4,6 +4,9 @@
 endSeasone: false # For end seasone server
 borderEvent: false # For invisible border the world
 DuelsEvent: false # For disable place and breake in duels maps
-FartCommand: false # /fart
-SexCommand: false # /sex
+FartCommand: true # /fart
+SexCommand: true # /sex
 BackroomsTeleport: true # Teleporting to backrooms map
+
+seasoneMsg: "\n§cYou can't it, seasone has ended. See ya later\n"
+worldBackrooms: "world_backrooms"

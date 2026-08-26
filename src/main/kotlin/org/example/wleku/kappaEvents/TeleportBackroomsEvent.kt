@@ -14,7 +14,9 @@ import org.bukkit.potion.PotionEffectType
 
 class TeleportBackroomsEvent: Listener {
 
-    val nameWorld: String = "world_backrooms"
+    val plugin = KappaEvents.instance
+    val enabling = plugin.config.getBoolean("BackroomsTeleport")
+    val nameWorld: String = plugin.config.getString("worldBackrooms").toString()
 
     val blocksList = arrayListOf<Material>(
         Material.SEA_LANTERN,
@@ -24,9 +26,6 @@ class TeleportBackroomsEvent: Listener {
         Material.SMOOTH_SANDSTONE,
         Material.DARK_OAK_STAIRS
     )
-
-    val plugin = KappaEvents.instance
-    val enabling = plugin.config.getBoolean("BackroomsTeleport")
 
     @EventHandler
     fun onTeleportBackroomsEvent(event: PlayerMoveEvent) {

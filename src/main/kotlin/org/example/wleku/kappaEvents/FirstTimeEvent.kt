@@ -13,6 +13,7 @@ class FirstTimeEvent: Listener {
     @EventHandler
     fun onFirstTimeEvent(event: PlayerJoinEvent) {
         val player = event.player
+        val plugin = KappaEvents.instance
 
         if (!player.hasPlayedBefore()) {
             player.teleport(Location(player.world, 0.0, 70.0, 0.0))
@@ -21,7 +22,7 @@ class FirstTimeEvent: Listener {
                 online -> online.playSound(online.location, Sound.ENTITY_CAT_PURREOW, 1.0f, 1.0f)
             }
 
-            Bukkit.broadcastMessage("§e${player.name} ЗАШЕЛ В ПЕРВЫЕ НА СЕРВЕР! УДАЧИ ЕМУ!")
+            Bukkit.broadcastMessage("§e${player.name} JOINED IN FIRST TIME!!!")
         }
     }
 }
